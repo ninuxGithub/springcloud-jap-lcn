@@ -3,13 +3,19 @@ package com.ninuxgithub.server;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
 
+@EnableAutoConfiguration
 @SpringBootApplication
+@EnableEurekaClient
+@EnableFeignClients
 public class Server2Application {
 
 	public static void main(String[] args) {

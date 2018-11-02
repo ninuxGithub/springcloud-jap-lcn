@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @FeignClient(value ="server2" ,fallback= DemoClientHystrix.class)
-public interface DemoClient {
+public interface ProxyClient {
     @RequestMapping("/list")
     List<Person> list();
 

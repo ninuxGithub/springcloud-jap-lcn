@@ -25,6 +25,7 @@ public class PersonController {
 
     @RequestMapping("/save")
     public Map<String, Boolean> savePerson() {
+        System.out.println("server2 save run...");
         boolean b = personService.savePerson(new Person("java", 18));
         Map<String, Boolean> map = new HashMap<>();
         map.put("flag", b);
