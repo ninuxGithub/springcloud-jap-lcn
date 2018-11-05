@@ -14,4 +14,12 @@
     即：int v=100/0; 执行了改代码会整个事物的回滚 （server1,  server2） 的save
     
     
+## tx-manager 模块
+    访问其首页： http://localhost:8899/index.html 
+    
+    
+    
+       
+    
+    
     

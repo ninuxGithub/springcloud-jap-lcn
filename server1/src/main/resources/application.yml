@@ -1,0 +1,42 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: server-one
+  datasource:
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lcn
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+init-db: true
+feign:
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+  hystrix:
+    enabled: true
+ribbon:
+  hystrix:
+    enabled: true
+tm:
+  manager:
+    url: http://127.0.0.1:8899/tx/manager/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      cors:
+        allowed-origins: '*'
+        allowed-methods: '*'
+logging:
+  level:
+    com.ninuxgithub: debug
+

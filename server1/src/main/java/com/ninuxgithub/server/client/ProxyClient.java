@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Map;
 
-@FeignClient(value ="server2" ,fallback= DemoClientHystrix.class)
+@FeignClient(value ="server-two" ,fallback= DemoClientHystrix.class)
 public interface ProxyClient {
     @RequestMapping("/list")
     List<Person> list();
