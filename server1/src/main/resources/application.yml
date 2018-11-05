@@ -13,6 +13,7 @@ spring:
       ddl-auto: update
 
 init-db: true
+
 feign:
   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
   hystrix:
@@ -20,9 +21,21 @@ feign:
 ribbon:
   hystrix:
     enabled: true
+
+zuul:
+  eureka:
+    enabled: true
 tm:
   manager:
     url: http://127.0.0.1:8899/tx/manager/
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2500
 
 eureka:
   client:
