@@ -2,6 +2,8 @@ package com.ninuxgithub.server.controller;
 
 import com.ninuxgithub.server.entity.Person;
 import com.ninuxgithub.server.service.PersonService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import java.util.Map;
 
 @RestController
 public class PersonController {
+
+    private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
     private PersonService personService;
@@ -31,6 +35,7 @@ public class PersonController {
         boolean b = personService.savePerson(new Person("java", 18));
         Map<String, Boolean> map = new HashMap<>();
         map.put("flag", b);
+        logger.info("save person server1 ....");
         return map;
     }
 }

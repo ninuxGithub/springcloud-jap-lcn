@@ -2,6 +2,8 @@ package com.ninuxgithub.server.controller;
 
 import com.ninuxgithub.server.entity.Person;
 import com.ninuxgithub.server.service.PersonService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,8 @@ import java.util.Map;
 @RestController
 public class PersonController {
 
+    private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
+
     @Autowired
     private PersonService personService;
 
@@ -25,7 +29,7 @@ public class PersonController {
 
     @RequestMapping("/save")
     public Map<String, Boolean> savePerson() {
-        System.out.println("server2 save run...");
+        logger.info("server2 save run...");
         boolean b = personService.savePerson(new Person("java", 18));
         Map<String, Boolean> map = new HashMap<>();
         map.put("flag", b);
