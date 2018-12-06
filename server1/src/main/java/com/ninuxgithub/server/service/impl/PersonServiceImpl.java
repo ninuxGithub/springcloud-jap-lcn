@@ -29,7 +29,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    @TxTransaction
+    @TxTransaction(isStart = true)
     @Transactional
     public boolean savePerson(Person person) {
 
@@ -37,7 +37,7 @@ public class PersonServiceImpl implements PersonService {
         client.save();
 
         Person save = personRepository.save(person);
-        //int v=100/0;
+        int v=100/0;
         return save !=null;
     }
 }
